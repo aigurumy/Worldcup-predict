@@ -1,0 +1,73 @@
+/* ============================================
+   TabSwitcher — Pill-shaped dual-tab toggle
+   ============================================ */
+
+.tab-switcher {
+  display: flex;
+  align-items: center;
+  background: var(--color-border-light);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  position: relative;
+  width: 100%;
+}
+
+/* Animated sliding background indicator */
+.tab-switcher__indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), width var(--transition-base);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Individual tab button */
+.tab-switcher__tab {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color var(--transition-base), font-weight var(--transition-fast);
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-switcher__tab:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: -2px;
+}
+
+/* Active tab styling */
+.tab-switcher__tab--active {
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+}
+
+/* Hover state for inactive */
+.tab-switcher__tab:not(.tab-switcher__tab--active):hover {
+  color: var(--color-text);
+}
+
+/* Tap feedback */
+.tab-switcher__tab:active {
+  transform: scale(0.98);
+}

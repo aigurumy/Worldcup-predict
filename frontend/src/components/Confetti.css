@@ -1,0 +1,31 @@
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100; /* above modal content but inside modal container */
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  border-radius: 2px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    top: -20px;
+    transform: rotateZ(0deg) rotateX(0deg);
+  }
+  100% {
+    opacity: 0.8;
+    top: 100%;
+    transform: rotateZ(720deg) rotateX(360deg);
+  }
+}

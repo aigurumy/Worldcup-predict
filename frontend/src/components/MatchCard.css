@@ -1,0 +1,438 @@
+/* ============================================
+   MatchCard — Match Prediction Card Styles
+   ============================================ */
+
+/* --- Card Container --- */
+.match-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  animation: fadeInUp 0.5s ease both;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.match-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.match-card--locked {
+  border-left-color: var(--color-success);
+}
+
+.match-card--locked:hover {
+  transform: translateY(-1px);
+}
+
+/* --- Top Bar --- */
+.match-card__top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.match-card__meta {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.match-card__venue {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  max-width: 45%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Teams Section --- */
+.match-card__teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.match-card__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.match-card__flag-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  background: var(--color-border-light);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-card__flag {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.4);
+}
+
+.match-card__team-name {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.match-card__vs {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+/* --- Countdown --- */
+.match-card__countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+.match-card__countdown-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+}
+
+.match-card__countdown-value {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.match-card__countdown-value--minutes {
+  animation: tickBounce 1s ease-in-out infinite;
+}
+
+.match-card__countdown-label {
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.match-card__countdown-separator {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-muted);
+  line-height: 1;
+  align-self: flex-start;
+  padding-top: 2px;
+}
+
+.match-card__countdown--expired .match-card__countdown-value {
+  color: var(--color-text-muted);
+}
+
+.match-card__countdown--expired .match-card__countdown-value--minutes {
+  animation: none;
+}
+
+.match-card__live-label {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+/* --- New Prediction Sections --- */
+.match-card__section {
+  margin-bottom: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-4);
+}
+
+.match-card__section--score {
+  border-top: none;
+  padding-top: 0;
+}
+
+.match-card__section-title {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.match-card__pts {
+  color: var(--color-primary);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+}
+
+/* --- Segmented Control (Who Wins) --- */
+.match-card__segmented-control {
+  display: flex;
+  background: var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  gap: 4px;
+}
+
+.match-card__segment {
+  flex: 1;
+  padding: var(--space-2);
+  text-align: center;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  border-radius: calc(var(--radius-md) - 2px);
+  transition: all var(--transition-fast);
+}
+
+.match-card__segment:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.match-card__segment--active {
+  background: white;
+  color: var(--color-primary);
+  font-weight: var(--weight-bold);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.match-card__segment:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* --- Score Inputs --- */
+.match-card__scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.match-card__score-input {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  -moz-appearance: textfield;
+}
+
+.match-card__score-input::-webkit-outer-spin-button,
+.match-card__score-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.match-card__score-input:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(46, 95, 209, 0.12);
+}
+
+.match-card__score-input:disabled {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.match-card__score-dash {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-muted);
+}
+
+/* --- Accordion Toggle --- */
+.match-card__accordion-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-3) 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  border-top: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-2);
+}
+
+.match-card__accordion-toggle:hover {
+  color: var(--color-primary);
+}
+
+.match-card__accordion-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-base);
+}
+
+.match-card__accordion-icon--open {
+  transform: rotate(180deg);
+}
+
+/* --- Accordion Content (Advanced/Expert) --- */
+.match-card__accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-base);
+  overflow: hidden;
+}
+
+.match-card__accordion-content--open {
+  grid-template-rows: 1fr;
+  margin-bottom: var(--space-4);
+}
+
+.match-card__advanced-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.match-card__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.match-card__input-group--full {
+  grid-column: 1 / -1;
+}
+
+.match-card__label {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.match-card__input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color var(--transition-fast);
+}
+
+.match-card__input:focus {
+  border-color: var(--color-primary-light);
+  outline: none;
+}
+
+.match-card__input:disabled {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success);
+  cursor: not-allowed;
+}
+
+/* --- Lock Button --- */
+.match-card__lock-btn {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-semibold);
+  font-size: var(--font-sm);
+  color: white;
+  background: var(--color-primary);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.match-card__lock-btn:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.match-card__lock-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.match-card__lock-btn:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.match-card__lock-btn--edit {
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.match-card__lock-btn--edit:hover:not(:disabled) {
+  background: var(--color-primary-light);
+  color: white;
+}
+
+.match-card__lock-btn--locked {
+  background: var(--color-success);
+  cursor: default;
+}
+
+/* --- Locked Badge --- */
+.match-card__locked-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: 4px 8px;
+  border-radius: var(--radius-md);
+  background: var(--color-success);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  animation: scaleIn 0.3s var(--transition-spring) both;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+  z-index: 10;
+}

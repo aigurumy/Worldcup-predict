@@ -1,0 +1,195 @@
+/* ============================================
+   PlayerPicker — Player Dropdown Styles
+   ============================================ */
+
+.player-picker {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Trigger Button --- */
+.player-picker__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  min-height: 40px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.player-picker__trigger:hover:not(:disabled) {
+  border-color: var(--color-border-dark);
+}
+
+.player-picker__trigger:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(46, 95, 209, 0.12);
+}
+
+.player-picker--open .player-picker__trigger {
+  border-color: var(--color-primary-light);
+}
+
+.player-picker--disabled .player-picker__trigger {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+  color: var(--color-success);
+  cursor: not-allowed;
+}
+
+/* Content inside trigger */
+.player-picker__placeholder {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+  flex: 1;
+}
+
+.player-picker__number {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  width: 20px;
+  margin-right: var(--space-2);
+}
+
+.player-picker__value {
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  flex: 1;
+}
+
+.player-picker__position {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  background: var(--color-border-light);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-2);
+  margin-left: auto;
+}
+
+.player-picker__chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.player-picker--open .player-picker__chevron {
+  transform: rotate(180deg);
+}
+
+/* --- Dropdown Panel --- */
+.player-picker__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-modal);
+  z-index: var(--z-overlay);
+  overflow: hidden;
+  animation: scaleIn 0.2s var(--transition-spring) both;
+  transform-origin: top center;
+}
+
+/* --- Search Area --- */
+.player-picker__search-wrapper {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+  background: var(--color-bg);
+}
+
+.player-picker__search {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+}
+
+.player-picker__search:focus-within {
+  border-color: var(--color-primary-light);
+}
+
+.player-picker__search-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.player-picker__search-input {
+  width: 100%;
+  padding: var(--space-2);
+  border: none;
+  background: transparent;
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+.player-picker__search-input:focus {
+  outline: none;
+}
+
+/* --- Options List --- */
+.player-picker__list {
+  max-height: 200px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.player-picker__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.player-picker__option:hover,
+.player-picker__option:focus-visible {
+  background: var(--color-border-light);
+  outline: none;
+}
+
+.player-picker__option--selected {
+  background: rgba(46, 95, 209, 0.05);
+}
+
+.player-picker__option-name {
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.player-picker__check {
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.player-picker__empty {
+  padding: var(--space-3);
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}

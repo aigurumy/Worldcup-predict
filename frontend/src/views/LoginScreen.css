@@ -1,0 +1,279 @@
+/* ============================================
+   LoginScreen — Styles
+   ============================================ */
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg);
+}
+
+/* --- Logo Area --- */
+.login-screen__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  animation: fadeInUp 600ms ease both;
+}
+
+.login-screen__ball {
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(26, 60, 142, 0.15));
+}
+
+.login-screen__app-name {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+}
+
+.login-screen__tagline {
+  font-size: var(--font-md);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Form Card --- */
+.login-screen__card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: fadeInUp 600ms ease 150ms both;
+}
+
+/* --- Input Group --- */
+.login-screen__input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 500ms ease both;
+}
+
+.login-screen__input-group:nth-child(1) {
+  animation-delay: 250ms;
+}
+
+.login-screen__input-group:nth-child(2) {
+  animation-delay: 350ms;
+}
+
+.login-screen__input-icon {
+  position: absolute;
+  left: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+.login-screen__input-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.login-screen__input-group:focus-within .login-screen__input-icon {
+  color: var(--color-primary);
+}
+
+.login-screen__input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  padding-left: calc(var(--space-3) + 20px + var(--space-3));
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 48px;
+}
+
+.login-screen__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.login-screen__input:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(26, 60, 142, 0.08);
+}
+
+/* --- Password Toggle --- */
+.login-screen__toggle-btn {
+  position: absolute;
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  border-radius: var(--radius-sm);
+}
+
+.login-screen__toggle-btn:hover {
+  color: var(--color-text-secondary);
+}
+
+.login-screen__toggle-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Country Picker Wrapper --- */
+.login-screen__country-picker {
+  opacity: 0;
+  animation: fadeInUp 500ms ease 450ms both;
+}
+
+/* --- Sign In Button --- */
+.login-screen__submit {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-md);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 48px;
+  opacity: 0;
+  animation: fadeInUp 500ms ease 550ms both;
+}
+
+.login-screen__submit:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 4px 12px rgba(26, 60, 142, 0.25);
+}
+
+.login-screen__submit:active {
+  transform: scale(0.98);
+}
+
+.login-screen__submit:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* --- Footer --- */
+.login-screen__footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  animation: fadeInUp 600ms ease 650ms both;
+}
+
+.login-screen__footer-link {
+  color: var(--color-primary-light);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.login-screen__footer-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* --- Validation & Sign Up Additions --- */
+
+.login-screen__mode-title {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  text-align: center;
+  animation: fadeInUp 400ms ease both;
+}
+
+.login-screen__country-group {
+  opacity: 1;
+  animation: fadeInUp 500ms ease 100ms both;
+  z-index: 10;
+}
+
+.login-screen__input.has-status {
+  padding-right: 48px;
+}
+
+.login-screen__input.has-error {
+  border-color: var(--color-danger);
+}
+
+.login-screen__input.has-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.login-screen__validation-indicator {
+  position: absolute;
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validation-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.validation-icon {
+  font-size: 16px;
+  animation: scaleIn 0.3s var(--transition-spring) forwards;
+}
+
+.login-screen__error-text {
+  font-size: var(--font-xs);
+  color: var(--color-danger);
+  margin-top: calc(var(--space-1) * -1);
+  margin-left: var(--space-1);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.login-screen__helper-text {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-top: calc(var(--space-1) * -1);
+  margin-left: var(--space-1);
+}
+
+.login-screen__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--color-text-muted);
+  box-shadow: none;
+}

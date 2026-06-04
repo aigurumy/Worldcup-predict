@@ -1,0 +1,81 @@
+/* ============================================
+   MatchDashboard — Styles
+   ============================================ */
+
+.match-dashboard {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: var(--color-bg);
+}
+
+/* --- Header --- */
+.match-dashboard__header {
+  padding: var(--space-6) var(--space-4) var(--space-4);
+  animation: fadeInUp 500ms ease both;
+}
+
+.match-dashboard__greeting {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.match-dashboard__title {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+}
+
+.match-dashboard__stat-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+}
+
+.match-dashboard__stat-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* --- Match Feed --- */
+.match-dashboard__feed {
+  padding: 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* --- Date Group --- */
+.match-dashboard__date-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.match-dashboard__date-group + .match-dashboard__date-group {
+  margin-top: var(--space-2);
+}
+
+/* --- Animated Card Wrapper --- */
+.match-dashboard__card-wrapper {
+  opacity: 0;
+  animation: fadeInUp 500ms ease both;
+}
+
+/* --- Bottom Spacing --- */
+.match-dashboard__bottom-spacer {
+  height: calc(var(--nav-height) + var(--space-8));
+  flex-shrink: 0;
+}

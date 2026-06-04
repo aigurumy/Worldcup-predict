@@ -1,0 +1,135 @@
+/* ============================================
+   BottomNav — Fixed bottom tab bar
+   ============================================ */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-height);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  /* Safe area inset for notched devices */
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Tab list container */
+.bottom-nav__tabs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Individual tab button */
+.bottom-nav__tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: 44px;
+  min-height: 44px;
+  height: 100%;
+  padding: var(--space-2) var(--space-1);
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.bottom-nav__tab:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: -2px;
+  border-radius: var(--radius-md);
+}
+
+/* Active tab text color */
+.bottom-nav__tab--active {
+  color: var(--color-primary);
+}
+
+/* Hover state for non-active tabs */
+.bottom-nav__tab:not(.bottom-nav__tab--active):hover {
+  color: var(--color-text-secondary);
+}
+
+/* Tab icon */
+.bottom-nav__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform var(--transition-spring);
+}
+
+.bottom-nav__tab--active .bottom-nav__icon {
+  transform: scale(1.1);
+}
+
+/* Tab label */
+.bottom-nav__label {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  transition: font-weight var(--transition-fast);
+}
+
+.bottom-nav__tab--active .bottom-nav__label {
+  font-weight: var(--weight-semibold);
+}
+
+/* Sliding underline indicator */
+.bottom-nav__indicator {
+  position: absolute;
+  top: 0;
+  height: 3px;
+  width: calc(100% / 3);
+  background: var(--color-primary);
+  border-radius: 0 0 var(--radius-full) var(--radius-full);
+  transition: transform var(--transition-base);
+  will-change: transform;
+}
+
+/* Indicator slide positions */
+.bottom-nav__indicator--0 {
+  transform: translateX(0);
+}
+
+.bottom-nav__indicator--1 {
+  transform: translateX(100%);
+}
+
+.bottom-nav__indicator--2 {
+  transform: translateX(200%);
+}
+
+/* Tap ripple micro-feedback */
+.bottom-nav__tab::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.bottom-nav__tab:active::after {
+  opacity: 0.06;
+}

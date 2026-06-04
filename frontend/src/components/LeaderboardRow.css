@@ -1,0 +1,88 @@
+/* ============================================
+   LeaderboardRow — Rank Row Styles (4th+)
+   ============================================ */
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  min-height: 52px;
+  transition: background-color var(--transition-fast);
+  animation: slideInRight 0.4s ease both;
+}
+
+/* Alternating backgrounds */
+.leaderboard-row--even {
+  background: var(--color-border-light);
+}
+
+.leaderboard-row:hover {
+  background: var(--color-border-light);
+}
+
+.leaderboard-row--even:hover {
+  background: var(--color-border);
+}
+
+/* --- Rank --- */
+.leaderboard-row__rank {
+  width: 32px;
+  min-width: 32px;
+  font-weight: var(--weight-bold);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Avatar --- */
+.leaderboard-row__avatar {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-base);
+  border: 1.5px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* --- Username --- */
+.leaderboard-row__username {
+  flex: 1;
+  font-weight: var(--weight-medium);
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* --- Country Flag --- */
+.leaderboard-row__flag {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+  background: var(--color-border-light);
+}
+
+/* --- Points --- */
+.leaderboard-row__points {
+  font-weight: var(--weight-bold);
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  min-width: 48px;
+  text-align: right;
+}
